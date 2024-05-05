@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <include
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    layout="@layout/layout_title_bar" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg_main"
+        android:gravity="center"
+        android:paddingTop="5dp" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/bg_input_tray"
+                android:gravity="center"
+                android:orientation="vertical" >
+	            <TextView
+	                android:id="@+id/tShowTrans_Line1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+	            <TextView
+	                android:id="@+id/tShowTrans_Line2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+	
+	            <TextView
+	                android:id="@+id/tShowTrans_Line3"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+	
+	            <TextView
+	                android:id="@+id/tShowTrans_Line4"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+
+	            <TextView
+	                android:id="@+id/tShowTrans_Line5"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+	
+	            <TextView
+	                android:id="@+id/tShowTrans_Line6"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

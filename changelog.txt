@@ -1,0 +1,9 @@
+20180525:
+	activities launch mode changed.
+----------------------------------------------------------------
+20180730:
+	add function "emv_set_currency_symbol" for offline PIN promot.
+----------------------------------------------------------------
+20200103:
+	1.5.2.50(含以前) disable multi-card detection
+	1.5.2.51   -     enable multi-card detection 

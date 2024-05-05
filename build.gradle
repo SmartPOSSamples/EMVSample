@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+    }
+}
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+apply plugin: 'com.android.application'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation(name: 'cloudpossdkV1.5.4.82_Standard', ext: 'aar')
+}
+
+android {
+    compileSdkVersion 28
+
+    sourceSets {
+        main {
+//            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+
+//            jni.srcDirs = ['jni']
+//            jniLibs.srcDirs = ['jni']
+        }
+
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+    
+}

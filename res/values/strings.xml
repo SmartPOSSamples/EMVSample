@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EMV SAMPLE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="none"></string>
+    <string name="tran_balance_en">BALANCE</string>
+    <string name="tran_sale_en">GOODS/SERVICE</string>
+    <string name="tran_batch_upload_en">UPLOAD</string>
+    <string name="tran_settlement_en">SETTLEMENT</string>
+    <string name="query_card_record_en">EMV CARD RECORD</string>
+    <string name="query_trans_record_en">TRANS RECORD</string>
+    <string name="query_specific_en">QUERY SPECIFIC TRANS</string>
+    <string name="query_trans_detail_en">QUERY TRANS DETAIL</string>
+
+    <string name="last_emv_trans">Last EMV Transaction Info</string>
+
+    <string name="insert_card">please inset IC card</string>
+
+
+    <string name="error_amount_over_limit">AMOUNT OVER LIMIT</string>
+    <string name="error_amount_zero">transaction terminated,please use other interface</string>
+
+    <string name="error_comm">SOCKET ERROR</string>
+    <string name="error_ic">IC ERROR</string>
+    <string name="error_cmd">CMD ERROR</string>
+    <string name="error_init_ic">INIT IC DEVICE ERROR</string>
+    <string name="error_open_ic">OPEN IC DEVICE ERROR</string>
+    <string name="error_no_trans_in_card">NO TRANS IN CARD</string>
+    <string name="error_not_support">NOT SUPPORT</string>
+    <string name="error_trans_empty">NO TRANS</string>
+    <string name="error_trans_full">TRANS FULL</string>
+    <string name="error_trans_not_found">ORIGINAL TRANS NOT FOUND</string>
+    <string name="error_settle_first">PLEASE SETTLE FIRST</string>
+    <string name="error_unknown">UNKNOWN ERROR</string>
+    <string name="error_expiry_card">EXPIRED CARD</string>
+    <string name="error_app_blocked">APP LOCKED</string>
+    <string name="error_card_blocked">CARD LOCKED</string>
+    <string name="error_no_app">APP SELECT ERROR</string>
+    <string name="error_not_accepted">NOT ACCEPTED</string>
+    <string name="error_pin_timeout">PIN TIMEOUT</string>
+    <string name="error_pinpad">PINPAD ERROR</string>
+     <string name="error_read_ic">IC ERROR</string>
+    <string name="error_user_cancelled">USER CANCELLED</string>
+    <string name="error_input_timeout">INPUT TIMEOUT</string>
+    <string name="error_other_card">IC ERROR</string>
+    <string name="error_more_card">HAVE MORE CARD</string>
+    <string name="error_pre_process">Preprocess Failed</string>
+
+
+    <string name="response_00">TRANS ACCEPTED</string>
+
+    <!-- tag for print -->
+    <string name="trans_receipt_title">POS SLIP</string>
+    <string name="total_receipt_title">TOTAL REPORT</string>
+    <string name="detail_receipt_title">DETAIL REPORT</string>
+    <string name="settle_receipt_title">SETTLE</string>
+    <string name="merchant_name_tag">MERCHANT:</string>
+    <string name="mid_tag">MID:</string>
+    <string name="tid_tag">TID:</string>
+    <string name="pan_tag">CARD:</string>
+    <string name="trans_type_tag">TRANS TYPE:</string>
+    <string name="exp_date_tag">EXP:</string>
+    <string name="batch_no_tag">BATCH:</string>
+    <string name="ticket_tag">TICKET:</string>
+    <string name="auth_no_tag">AUTH CODE:</string>
+    <string name="date_tag">DATE:</string>
+    <string name="rrn_tag">RRN:</string>
+    <string name="amount_tag">AMOUNT:</string>
+    <string name="tac_tag">TAC:</string>
+    <string name="signature_tag">SIGNATURE:</string>
+
+</resources>

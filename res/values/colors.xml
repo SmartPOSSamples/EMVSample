@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project -->
+
+<resources>
+
+    <color name="dingmore_grey_light">#afafaf</color>
+     <color name="dingmore_green_light">#94b234</color>
+    <color name="dingmore_green_dark">#39571b</color>
+     <color name="dingmore_red">#C8001E</color>
+      <color name="orange">#fe9700</color>
+        <!-- situo start -->
+    <color name="grey_font">#8f8f8f</color>
+    <color name="splash_bg">#f8f8f8</color>
+
+    <!-- situo start -->
+    <color name="situo_subtab_select_on">#003f8e</color>
+    <color name="situo_subtab_select_off">#138fcf</color>
+    <color name="situo_subtab_order">#326e90</color>
+    <color name="situo_subtab_head_start">#cce5f6</color>
+    <color name="situo_subtab_head_end">#bedef1</color>
+    <color name="situo_subtab_head_border">#afd6ee</color>
+    <color name="situo_tab_select_on_start">#0f99bd</color>
+    <color name="situo_tab_select_on_end">#096c96</color>
+    <color name="situo_tab_select_off_start">#3a3a3a</color>
+    <color name="situo_tab_select_off_end">#292929</color>
+    <color name="situo_title_bg_start">#7eb9d9</color>
+    <color name="situo_title_bg_end">#539ace</color>
+    
+         <!-- situo_qr start -->
+    <color name="situo_qr_viewfinder_frame">#ff000000</color>
+    <color name="situo_qr_viewfinder_laser">#ffff0000</color>
+    <color name="situo_qr_viewfinder_mask">#60000000</color>
+    <color name="situo_qr_possible_result_points">#c0ffff00</color>
+    <color name="situo_qr_result_image_border">#ffffffff</color>
+    <color name="situo_qr_result_minor_text">#ffc0c0c0</color>
+    <color name="situo_qr_result_points">#c000ff00</color>
+    <color name="situo_qr_result_text">#ffffffff</color>
+    <color name="situo_qr_result_view">#b0000000</color>
+    <color name="situo_qr_status_text">#ffffffff</color>
+    <color name="situo_qr_encode_view">#ffffffff</color>
+    <color name="situo_qr_contents_text">#ff000000</color>
+    	<!-- situo_qr end -->
+
+	<color name="title_bg">#1060AB</color>
+	<color name="tab_bg">#0158A7</color>
+	<color name="tab_bg_select">#00000000</color>
+    <color name="yellow">#F9F900</color>
+    <color name="white">#fff</color>
+    <color name="black">#000000</color>
+    <color name="grey_start">#CBCBCB</color>
+    <color name="grey_end">#8C9DAE</color>
+    <color name="blue_start">#0f93b8</color>
+    <color name="blue_end">#0f93b8</color>
+    <color name="green_start">#c6df7a</color>
+    <color name="green_end">#92b130</color>
+    <color name="bg_green">#94b234</color>
+    <color name="bg_green_9alp">#9094b234</color>
+    <color name="bg_green_5alp">#5094b234</color>
+    <color name="black_start">#333333</color>
+    <color name="black_end">#181818</color>
+    <color name="vlgrey">#EEEEEE</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#ff0000</color>
+    <color name="conten_bg">#F3F8FB</color>
+    <color name="title_bg_1">#B6B6B6</color>
+    <color name="title_bg_2">#999999</color>
+    <color name="situo_loading_bg">#e7f2fb</color>
+    <color name="situo_click_off">#00000000</color>
+    <color name="situo_click_on">#e7f2fb</color>
+    
+	<color name="selected">#FFB83F</color>
+        
+    <color name="situo_board_item_off">#e7f2fb</color>
+    <color name="situo_board_item_on">#0f93b8</color>
+    <!-- situo end -->
+    
+    <!-- zxing begin -->
+    <color name="bg_color">#EDEDED</color>
+	<color name="contents_text">#ff000000</color>
+	<color name="encode_view">#ffffffff</color>
+	<color name="help_button_view">#ffcccccc</color>
+	<color name="help_view">#ff404040</color>
+  	<color name="possible_result_points">#c0ffff00</color>  
+	<color name="result_image_border">#ffffffff</color>
+	<color name="result_minor_text">#ffc0c0c0</color>
+	<color name="result_points">#c000ff00</color>
+	<color name="result_text">#ffffffff</color>
+	<color name="result_view">#b0000000</color>
+	<color name="sbc_header_text">#ff808080</color>
+	<color name="sbc_header_view">#ffffffff</color>
+	<color name="sbc_list_item">#fffff0e0</color>
+	<color name="sbc_layout_view">#ffffffff</color>
+	<color name="sbc_page_number_text">#ff000000</color>
+	<color name="sbc_snippet_text">#ff4b4b4b</color>
+	<color name="share_text">#ff000000</color>
+	<color name="share_view">#ffffffff</color>
+	<color name="status_view">#50000000</color>
+	<color name="status_text">#ffffffff</color>
+	<color name="viewfinder_frame">#ff000000</color>
+	<color name="viewfinder_laser">#ffff0000</color>
+	<color name="viewfinder_mask">#60000000</color>
+	<color name="header">#58567D</color>
+	<color name="grgray">#686868</color>
+	<!-- zxing end -->
+
+	<color name="plussub_bg_on">#ececec</color>
+	<color name="plussub_bg_off">#dbdbdb</color>
+	<color name="store_item_on">#efefef</color>
+	<color name="store_item_off">#f6f6f6</color>
+	
+	<color name="booking_item_font_1">#829d2a</color>
+	<color name="booking_item_font_2">#ececec</color>
+	<color name="booking_item_font_bg1">#ececec</color>
+	<color name="booking_item_font_bg2">#dbdbdb</color>
+	<color name="grey_light">#d4d4d4</color>
+	<color name="green_light">#94b234</color>
+	<color name="forget_pwd_green">#3A581C</color>
+</resources>

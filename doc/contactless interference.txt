@@ -1,0 +1,16 @@
+To handle contact-less issue, please refer to following steps:
+
+Execute 'emv_set_anti_shake(1)' before opening reader to enable the function;(method readAllCard in FuncActivity.java)
+When contact-less card be found, card event 'SMART_CARD_EVENT_CONTALESS_ANTI_SHAKE' will be notified;(cardEventOccured in FuncActivity.java); The callback function will wait 400 ms by default for detecting other readers.
+Application should check if MSR read in card event callback('case CARD_CONTACTLESS_ANTISHAKE:' in RequestCardActivity.java) and call 'emv_anti_shake_finish' depending on MSR state, this method should also be called If contact card be found('case CARD_INSERT_NOTIFIER:' in RequestCardActivity.java).
+After card be found, contact-less reader should be restart if contact-less card interaction error('case ERROR_PROCESS_CMD:' in ProcessEMVCardActivity.java). Step 1-2 should be considered if contact-less restart('case CARD_CONTACTLESS_ANTISHAKE:' in ProcessEMVCardActivity.java).
+While processing contact-less transaction, if contact card inserted, transaction should be interrupted(before reading application finished) and started with contact('case ERROR_CONTACT_DURING_CONTACTLESS:' in ProcessEMVCardActivity.java).
+
+These steps contain all procedure for handing issue contact-less. Please refer to the source code which has background color.
+
+=================================================================================
+/**
+*   flag: 0 - Do not detect any other card interface, continue contactless trxn 
+*         1 - Detected other card interface, cancel contactless trxn.
+*/
+emv_anti_shake_finish(int flag)

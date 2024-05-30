@@ -84,7 +84,7 @@ public class RequestCardActivity extends FuncActivity
     @Override
 	public void handleMessageSafe(Message msg)
 	{
-		/*这里是处理信息的方法*/
+		/*Here's how to process information*/
 		switch (msg.what)
 		{
 		case MSR_READ_DATA_NOTIFIER:

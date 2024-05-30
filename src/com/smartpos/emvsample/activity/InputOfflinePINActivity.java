@@ -71,7 +71,7 @@ public class InputOfflinePINActivity extends FuncActivity implements PinPadCallb
 	@Override
 	public void handleMessageSafe(Message msg)
 	{
-		/*这里是处理信息的方法*/
+		/*Here's how to process information*/
 		switch (msg.what)
 		{
 		case OFFLINE_PIN_NOTIFIER:

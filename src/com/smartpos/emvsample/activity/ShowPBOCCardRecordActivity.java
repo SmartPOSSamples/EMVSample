@@ -51,10 +51,10 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
         textTitle = (TextView)findViewById(R.id.tAppTitle);
         if(appState.recordType == 0x00)
         {
-        	textTitle.setText("交易日志");
+        	textTitle.setText("Transaction Log");
         }
         else{
-        	textTitle.setText("圈存日志");
+        	textTitle.setText("Transfer Log");
         }
         
 	    buttonBack = (Button)findViewById(R.id.btn_back);
@@ -95,10 +95,10 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 		currentTransIndex = 1;
 		if(appState.recordType == 0x00)
 		{
-			textTransType.setText("交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+			textTransType.setText("Transaction details (" + currentTransIndex + "/" + recordNumber + ")");
 		}
 		else{
-			textTransType.setText("圈存交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+			textTransType.setText("Transfer details (" + currentTransIndex + "/" + recordNumber + ")");
 		}
 		buttonPrev.setClickable(false);
 		if(currentTransIndex == recordNumber)
@@ -158,15 +158,15 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 	    			          + ":" + StringUtil.toHexString(transTime,false).substring(2,4)
 	    			          + ":" + StringUtil.toHexString(transTime,false).substring(4,6)
 	    			         );
-	    	textLine2.setText("授权金额:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(authAmount, false))));
-	    	textLine3.setText("其他金额:" + AppUtil.formatAmount(AppUtil.toAmount(otherAmount)));
-	    	textLine4.setText("终端国家代码:" + StringUtil.toHexString(termCountryCode,false));
-	    	textLine5.setText("交易货币代码:" + StringUtil.toHexString(transCurrencyCode,false));
+	    	textLine2.setText("Authorized amount:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(authAmount, false))));
+	    	textLine3.setText("Other amount:" + AppUtil.formatAmount(AppUtil.toAmount(otherAmount)));
+	    	textLine4.setText("Terminal country code:" + StringUtil.toHexString(termCountryCode,false));
+	    	textLine5.setText("Transaction currency code:" + StringUtil.toHexString(transCurrencyCode,false));
 	    	try {
-				textLine6.setText("商户名称:" + new String(merchantName, "GB2312").trim());
+				textLine6.setText("Business Name:" + new String(merchantName, "GB2312").trim());
 			} catch (UnsupportedEncodingException e) {
 			}
-	    	textLine7.setText("交易类型:" + StringUtil.fillZero(Byte.toString(transType),2));
+	    	textLine7.setText("Transaction Type:" + StringUtil.fillZero(Byte.toString(transType),2));
 	    	// textLine8.setText("ATC:" + StringUtil.toHexString(atc,false));
 	    	textLine8.setText("ATC:" + Short.toString(NumberUtil.byte2ToShort(atc)));
 		}
@@ -179,11 +179,11 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 			
 			byte[] preAmount = new byte[6];
 			System.arraycopy(recordList, offset + 2, preAmount, 0, 6);
-			textLine2.setText("圈存前余额:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(preAmount, false))));
+			textLine2.setText("Balance before transfer:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(preAmount, false))));
 			
 			byte[] aftAmount = new byte[6];
 			System.arraycopy(recordList, offset + 8, aftAmount, 0, 6);
-			textLine3.setText("圈存后余额:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(aftAmount, false))));
+			textLine3.setText("Balance after transfer:" + AppUtil.formatAmount(Long.parseLong(StringUtil.toHexString(aftAmount, false))));
 			
 			offset += 14;
 			byte[] tagData = new byte[256];
@@ -260,12 +260,12 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 				}
 				if(tcc != null)
 				{
-					textLine5.setText("终端国家代码:" + StringUtil.toHexString(tcc,false));
+					textLine5.setText("Terminal country code:" + StringUtil.toHexString(tcc,false));
 				}
 				if(merchantName != null)
 				{
 			    	try {
-						textLine6.setText("商户名称:" + new String(merchantName, "GB2312").trim());
+						textLine6.setText("Business Name:" + new String(merchantName, "GB2312").trim());
 					} catch (UnsupportedEncodingException e) {
 					}
 				}
@@ -289,10 +289,10 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 				currentTransIndex --;
 				if(appState.recordType == 0x00)
 				{
-					textTransType.setText("交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+					textTransType.setText("Transaction details (" + currentTransIndex + "/" + recordNumber + ")");
 				}
 				else{
-					textTransType.setText("圈存交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+					textTransType.setText("Transfer details (" + currentTransIndex + "/" + recordNumber + ")");
 				}
 				if(currentTransIndex ==  1)
 				{
@@ -308,10 +308,10 @@ public class ShowPBOCCardRecordActivity extends FuncActivity
 				currentTransIndex ++;
 				if(appState.recordType == 0x00)
 				{
-					textTransType.setText("交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+					textTransType.setText("Transaction details (" + currentTransIndex + "/" + recordNumber + ")");
 				}
 				else{
-					textTransType.setText("圈存交易明细(" + currentTransIndex + "/" + recordNumber + ")");
+					textTransType.setText("Transer details (" + currentTransIndex + "/" + recordNumber + ")");
 				}
 				if(currentTransIndex == recordNumber)
 				{

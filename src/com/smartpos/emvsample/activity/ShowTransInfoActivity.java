@@ -57,12 +57,12 @@ public class ShowTransInfoActivity extends FuncActivity
 			exit();
 			return;
 		}
-		textLine1.setText("卡号: " + appState.trans.getPAN());
+		textLine1.setText("Card number: " + appState.trans.getPAN());
 		textLine2.setText(TransDefine.transInfo[appState.trans.getTransType()].id_display_en);
-		textLine3.setText("日期: " + appState.trans.getTransDate());
-		textLine4.setText("时间: " + appState.trans.getTransTime());
-		textLine5.setText("金额: " + NumberFormat.getCurrencyInstance(Locale.CHINA).format(appState.trans.getTransAmount()/100));
-		textLine6.setText("授权码:" + appState.trans.getAuthCode());
+		textLine3.setText("Date: " + appState.trans.getTransDate());
+		textLine4.setText("Time: " + appState.trans.getTransTime());
+		textLine5.setText("Amount: " + NumberFormat.getCurrencyInstance(Locale.CHINA).format(appState.trans.getTransAmount()/100));
+		textLine6.setText("Authorization code:" + appState.trans.getAuthCode());
         startIdleTimer(TIMER_FINISH, DEFAULT_IDLE_TIME_SECONDS);
 	}
 	

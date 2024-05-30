@@ -82,7 +82,7 @@ public class IdleActivity extends FuncActivity implements EMVConstant
     @Override
     public void handleMessageSafe(Message msg)
     {
-        /*这里是处理信息的方法*/
+        /*Here's how to process information*/
         switch (msg.what)
         {
         case CARD_INSERT_NOTIFIER:

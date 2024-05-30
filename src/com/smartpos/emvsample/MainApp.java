@@ -38,8 +38,8 @@ import java.util.concurrent.Executors;
 public class MainApp extends Application implements EMVConstant
 {
     private byte tranType = TRAN_GOODS;
-    private byte paramType = -1;   // 参数设置类型
-	private byte processState = 0;  // 处理阶段
+    private byte paramType = -1;   // Parameter setting type
+	private byte processState = 0;  // Processing stage
 	private byte state = 0;         // 
     private int  errorCode = 0;
     private byte commState = COMM_DISCONNECTED;
@@ -47,7 +47,7 @@ public class MainApp extends Application implements EMVConstant
     private SharedPreferences batchPref;  
     private Calendar mCalendar;
 
-    //模块调用
+    // Module call
 	public static PinpadImpl pinpadService;
 	public static ContactCardImpl contactService;
 	public static ContactlessCardImpl contactlessService;
@@ -117,10 +117,10 @@ public class MainApp extends Application implements EMVConstant
 	public int currentSecond;
 	
 	public int printReceipt = 0;
-	// 读卡设备信息
-	public boolean icInitFlag = false;       // IC卡是否已初始化
+	// Card reading device information
+	public boolean icInitFlag = false;       // IC card initialization
 	public boolean idleFlag = false;
-	// 密码键盘
+	// password pinpad
 	public boolean pinpadOpened = false;
 	public boolean needClearPinpad = false;
 	public boolean getPanBeforeAmount = false;
@@ -153,7 +153,7 @@ public class MainApp extends Application implements EMVConstant
 
 		wizarType = WizarTypeUtil.getWizarType();
 
-		//显示上下导航栏 全系统有效
+		//Display the upper and lower navigation bars. Valid for the whole system.
 //		try {
 //			Object service = getSystemService("statusbar");
 //			Class statusBarManager = null;
@@ -188,7 +188,7 @@ public class MainApp extends Application implements EMVConstant
 		terminalConfig.loadTerminalConfig();
 		batchInfo.loadBatch();
 
-		//模块初始化
+		//Module initialization
 		pinpadService = PinpadImpl.getInstance(getBaseContext());
 		contactService = ContactCardImpl.getInstance(getBaseContext());
 		contactlessService = ContactlessCardImpl.getInstance(getBaseContext());
@@ -211,9 +211,9 @@ public class MainApp extends Application implements EMVConstant
 
     public void initData()
     {
-    	tranType = TRAN_GOODS;    // 交易类型
+    	tranType = TRAN_GOODS;    // Transaction Type
     	paramType = -1;
-    	processState = 0;  // 处理阶段
+    	processState = 0;  // processing stage
     	state = 0;         // 
         errorCode = 0;
         cardType = -1;
@@ -300,7 +300,7 @@ public class MainApp extends Application implements EMVConstant
     public void getCurrentDateTime()
     {
 		long time = System.currentTimeMillis(); 
-		/*透过Calendar对象来取得小时与分钟*/ 
+		/*Get hours and minutes through Calendar object*/
 		mCalendar = Calendar.getInstance(); 
 		mCalendar.setTimeInMillis(time); 
 		currentYear = mCalendar.get(Calendar.YEAR);

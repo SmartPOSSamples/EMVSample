@@ -66,7 +66,7 @@ public class TerminalConfig
 	private Integer primaryHostPort = DEFAULT_HOST_PORT;
 	private Integer timeout = DEFAULT_TIMEOUT;
 	private Integer nii = 3;
-	private String  tid = "99990002";  // 消费终端
+	private String  tid = "99990002";  // Consumer terminal
 	private String  mid = "205910000010003";
 	private String  merchantName1 = "Test Name 1";
 	private String  merchantName2 = "Test Name 2";
@@ -91,7 +91,7 @@ public class TerminalConfig
 	private String lastTVR = "";
 	private String lastTSI = "";
 	// QPBOC
-	private byte    TTQ = DEFAULT_TTQ;     // 9F66第一个字节    0011 1010
+	private byte    TTQ = DEFAULT_TTQ;     // 9F66 first byte    0011 1010
 	private byte    statusCheckSupport = 0;
 	
 	private int ecLimit = 0;

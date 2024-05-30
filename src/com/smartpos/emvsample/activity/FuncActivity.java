@@ -110,10 +110,10 @@ public class FuncActivity extends Activity implements EMVConstant, IFuntionListe
 	public void capkChecksumErrorDialog(Context context)
 	{
 		AlertDialog.Builder builder = new Builder(context);
-		builder.setTitle("提示");
+		builder.setTitle("Prompt");
 		builder.setMessage("CAPK:" + appState.failedCAPKInfo + "\nChecksum Error");
 
-		builder.setPositiveButton("确认", new OnClickListener() {
+		builder.setPositiveButton("Confirm", new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 			}
@@ -841,7 +841,7 @@ public class FuncActivity extends Activity implements EMVConstant, IFuntionListe
 		}
 	}
 
-	// ilde
+	// idle
 	public void go2Idle()
 	{
 		cancelIdleTimer();

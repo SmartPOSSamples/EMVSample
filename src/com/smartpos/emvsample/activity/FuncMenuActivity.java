@@ -162,7 +162,7 @@ public class FuncMenuActivity extends FuncActivity
 
 			byte[] inArray = StringUtil.hexString2bytes("57132223000010364419D19122010000000005230F000000");
 
-			//NOTE 老代码里如下，写死的index,新代码没有沿用
+			//NOTE the old code is as follows, the hard-coded index is not used in the new code.
 			//int nKeyType, int nMasterKeyID, int nUserKeyID, int nAlgorith
 			//if(PinPadInterface.setKey(1,2,0,DOUBLE_KEY) >=0)
 

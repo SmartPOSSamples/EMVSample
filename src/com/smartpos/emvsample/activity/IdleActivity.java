@@ -126,7 +126,7 @@ public class IdleActivity extends FuncActivity implements EMVConstant
 				setEMVTermInfo();
 			}
 		}
-		idleLine1.setText("GOODS / SERVICE");
+		idleLine1.setText("GOODS / SERVICES");
 		idleLine2.setText("PLEASE INSERT CARD");
 
 		byte[] version = new byte[32];

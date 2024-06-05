@@ -6,7 +6,7 @@
     <string name="ok">OK</string>
     <string name="none"></string>
     <string name="tran_balance_en">BALANCE</string>
-    <string name="tran_sale_en">GOODS/SERVICE</string>
+    <string name="tran_sale_en">GOODS/SERVICES</string>
     <string name="tran_batch_upload_en">UPLOAD</string>
     <string name="tran_settlement_en">SETTLEMENT</string>
     <string name="query_card_record_en">EMV CARD RECORD</string>

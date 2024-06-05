@@ -3,12 +3,12 @@ package com.smartpos.EMVKernel;
 public class EMVInitParam
 {
 	/**
-	 * PBOC处理：1 ; QPBOC处理：2 ; 电子现金处理：3
+	 * PBOC processing: 1; QPBOC processing: 2; Electronic cash processing: 3
 	 */
 	public int TransType = 0;
 	
 	/**
-	 * 读卡器的句柄
+	 * Card reader handle
 	 */
 	public int ReaderHandle = 0;
 	

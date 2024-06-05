@@ -115,7 +115,7 @@ public class ProcessEMVCardActivity extends FuncActivity
 
 	@Override
 	public void handleMessageSafe(Message msg) {
-		/*这里是处理信息的方法*/
+		/*Here's how to process information*/
 		switch (msg.what)
 		{
 		case EMV_PROCESS_NEXT_COMPLETED_NOTIFIER:
@@ -310,7 +310,7 @@ public class ProcessEMVCardActivity extends FuncActivity
 						offlineSuccess();
 					}
 					else{
-						// 需判断是否联机
+						// Determine whether online
 						if(   appState.trans.getEMVOnlineFlag() == true
 							&& appState.trans.getEMVOnlineResult() == ONLINE_FAIL
 						)
@@ -347,7 +347,7 @@ public class ProcessEMVCardActivity extends FuncActivity
 						&& appState.trans.getEMVOnlineResult() == ONLINE_FAIL
 					)
 					{
-						// 通讯失败
+						// Communication failed
 						if(appState.terminalConfig.getUploadType() == 0)
 						{
 							saveAdvice();

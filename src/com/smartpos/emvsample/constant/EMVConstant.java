@@ -77,8 +77,8 @@ public interface EMVConstant
 	/*-----  parameter set TYPES  ---------------------------------*/
 	final byte PARAM_TID                = 1;
 	final byte PARAM_MID                = 2;
-	final byte PARAM_BATCH              = 3; // 设置批次号
-	final byte PARAM_TRACE              = 4; // 设置流水号(凭证号)
+	final byte PARAM_BATCH              = 3; // Set batch number
+	final byte PARAM_TRACE              = 4; // Set serial number (voucher number)
     final byte PARAM_COMM_PRIMARY_IP    = 5;
     final byte PARAM_COMM_PRIMARY_PORT  = 6;
     final byte PARAM_MERCHANT_NAME      = 7;
@@ -115,14 +115,14 @@ public interface EMVConstant
 	//----------------------------------------------------------------------
 	//  Transaction ENTRY mode
 	//----------------------------------------------------------------------
-    final byte MANUAL_ENTRY      = 1; //手工输入卡号
-    final byte SWIPE_ENTRY       = 2; //读取磁条卡号
-    final byte SCAN_ENTRY        = 3; //读取条形码
-    final byte INSERT_ENTRY      = (byte)0x80; //读取IC卡
+    final byte MANUAL_ENTRY      = 1; //Enter card number manually
+    final byte SWIPE_ENTRY       = 2; //Read magnetic stripe card number
+    final byte SCAN_ENTRY        = 3; //Read barcode
+    final byte INSERT_ENTRY      = (byte)0x80; //Read IC card
     final byte CONTACTLESS_ENTRY = 6;
     // PIN Mode
-    final byte CAN_PIN      = 0;  //可输密码
-    final byte CANNOT_PIN   = 1;  //不可输密码
+    final byte CAN_PIN      = 0;  //Password can be entered
+    final byte CANNOT_PIN   = 1;  //Password cannot be entered
     
     final byte LOGON_MODE  = 3;
     final byte LOGOFF_MODE = 4;
@@ -196,7 +196,7 @@ public interface EMVConstant
 	final int CARD_CONTACTLESS_ANTISHAKE			= 30;
 	final int OFFLINE_PIN_NOTIFIER                  = 31;
 
-	// 通讯设备状态
+	// Communication equipment status
 	final byte COMM_DISCONNECTED  = 0x00;
 	final byte COMM_CONNECTING    = 0x01;
 	final byte COMM_CONNECTED     = 0x02;
@@ -235,9 +235,9 @@ public interface EMVConstant
 	final int PINPAD_NONE      = 3;
 	
 	// EMV STATUS
-  	final byte STATUS_ERROR    		= 0; //执行报错
-  	final byte STATUS_CONTINUE    	= 1; //还未完成
-  	final byte STATUS_COMPLETION 	= 2; //完成 
+  	final byte STATUS_ERROR    		= 0; //Execution error
+  	final byte STATUS_CONTINUE    	= 1; //Not finished yet
+  	final byte STATUS_COMPLETION 	= 2; //Completed
 
   	// EMV Return Code
   	final byte EMV_START                    = 0;  // EMV Transaction Started

@@ -144,7 +144,7 @@ public class ByteUtil
 	}
   
 	/**
-	 * Compares this byte arrary to the specified object.
+	 * Compares this byte array to the specified object.
 	 * The result is <code>true</code> if and only if the argument is not
 	 * <code>null</code> and is a <code>String</code> object that represents
 	 * the same sequence of characters as this object.
@@ -262,7 +262,7 @@ public class ByteUtil
 		return destArray;
 	}
 
-	// 字节数组转成16进制字符串(高效版:只创建至多两个对象, 减少内存占用). DuanCS@[20140610]
+	// Convert the byte array into a hexadecimal string (efficient version: only create at most two objects, reducing memory usage). DuanCS@[20140610]
 	public static final char[] hexChars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 	public static String arrayToHexStr(byte[] src)
 	{
@@ -292,19 +292,19 @@ public class ByteUtil
 		if (0 < srcLen && (src.length - offset) < srcLen)
 			srcLen = 0;
 
-		// 尽可能不创建新对象
+		// Create new objects as little as possible
 		if (srcLen == 0) {
 			return prefixLen == 0 ? "" : prefix;
 		}
 
-		// 事先就创建好大小正好的缓冲区，后续操作会很快且无内存浪费!
+		// Create a buffer of the right size in advance, and subsequent operations will be fast with no memory waste!
 		StringBuilder sb = new StringBuilder(prefixLen + (srcLen << 1));
 		if (prefixLen > 0)
 			sb.append(prefix);
 
 		while(0 < srcLen--)
 		{
-			int srcI = 0xFF & src[offset++];	// 扩展后 只取 8 BIT
+			int srcI = 0xFF & src[offset++];	// After expansion, only 8 BITs are taken
 			sb.append(hexChars[srcI >> 4]);
 			sb.append(hexChars[srcI & 0x0f]);
 		}

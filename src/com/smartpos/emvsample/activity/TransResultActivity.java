@@ -39,7 +39,7 @@ public class TransResultActivity extends FuncActivity
 	@Override
 	public void handleMessageSafe(Message msg)
 	{
-		/*这里是处理信息的方法*/
+		/*Here's how to process information*/
 		switch (msg.what)
 		{
 		case PRINT_PAUSE_TIMER_NOTIFIER:
@@ -188,7 +188,7 @@ public class TransResultActivity extends FuncActivity
 				switch(v.getId())
 				{
 				case R.id.btn_digit_enter:
-					// 打印
+					// print
 					cancelPrintPauseTimer();
 					continuePrintReceipt();
 					break;

@@ -1,391 +1,403 @@
 package com.smartpos.emvsample.printer;
 
-public class PrinterCommand 
+public class PrinterCommand
 {
     /**
-     * 打印行缓冲器里的内容并向前走纸一行。当行缓冲器为空时只向前走纸一行。
-     * 
+     * Print the data in the printer buffer, then feed paper for one line according to the current line space settings.
+     * After printing, the print position moves to the beginning of the line.
+     *
      * @return
      */
-    static public byte[] linefeed() 
+    static public byte[] linefeed()
     {
-    	return new byte[] { (byte) 0x0A };
+        return new byte[] { (byte) 0x0A };
     }
 
     /**
-     * 打印位置跳到下一个制表位,制表位为 8 个字符的起始位置
-     * 
+     * The printing position jumps to the next tab stop, which is the starting position of 8 characters.
+     *
      * @return
      */
     static public byte[] getCmdHt()
     {
-    	return new byte[] { (byte) 0x09 };
+        return new byte[] { (byte) 0x09 };
     }
 
     /**
-     * 打印缓冲区里的数据,如果有黑标功能,打印后进纸到下一个黑标位置
-     * 
+     * The data in the print buffer, if there is a black mark function, will feed the paper to the next black mark position after printing.
+     *
      * @return
      */
     static public byte[] getCmdFf()
     {
-	return new byte[] { (byte) 0x0c };
+        return new byte[] { (byte) 0x0c };
     }
 
     /**
-     * 
-     * 打印行缓冲区里的内容,并向前走纸 n 点行。 该命令只对本行有效,不改变 ESC 2,ESC 3 命令设置的行间距值。
-     * 
+     *
+     * Print the contents of the line buffer and advance the paper n lines.
+     * This command is only valid for this line and does not change the line spacing value set by the ESC 2 and ESC 3 commands.
+     *
      * @param n
      *            0-255
      * @return
      */
     static public byte[] getCmdEscJN(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x4A, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x4A, (byte) n };
     }
 
     /**
-     * 打印缓冲区里的数据,如果有黑标功能,打印后进纸到下一个黑标位置
-     * 
+     * The data in the print buffer, if there is a black mark function, will feed the paper to the next black mark position after printing.
+     *
      * @return
      */
     static public byte[] getCmdEscFf()
     {
-    	return new byte[] { (byte) 0x1b, (byte) 0x0c };
+        return new byte[] { (byte) 0x1b, (byte) 0x0c };
     }
 
     /**
-     * 打印行缓冲区里的内容,并向前走纸 n 行。 行高为 ESC 2,ESC 3 设定的值
-     * 
+     * Print the contents of the line buffer and advance the paper n lines.
+     * The row height is the value set by ESC 2 and ESC 3
+     *
      * @param n
      *            0-255
      * @return
      */
     static public byte[] feedLine(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x64, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x64, (byte) n };
     }
 
     /**
-     * 1:打印机处于连线模式,接受打印数据并打印 0:打印机处于离线模式,不接受打印数据
-     * 
+     * 1: The printer is in online mode, accepts print data and prints
+     * 0: The printer is in offline mode, does not accept print data
+     *
      * @param n
-     *            :0,1最低位有效
+     *            :0,1 The lowest bit is valid
      * @return
      */
     static public byte[] getCmdEscN(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x3d, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x3d, (byte) n };
     }
 
-    /*--------------------------行间距设置命令-----------------------------*/
+    /*--------------------------Line spacing setting commands-----------------------------*/
 
     /**
-     * 设置行间距为 4 毫米,32 点
-     * 
+     * Set line spacing to 4 mm, 32 points
+     *
      * @return
      */
-    static public byte[] getCmdEsc2() 
+    static public byte[] getCmdEsc2()
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x32 };
+        return new byte[] { (byte) 0x1B, (byte) 0x32 };
     }
 
     /**
-     * 设置行间距为 n 点行。 默认值行间距是 32 点。
-     * 
+     * Set line spacing to n points lines. The default line spacing is 32 points.
+     *
      * @param n
      *            :0-255
      * @return
      */
-    static public byte[] getCmdEsc3N(int n) 
+    static public byte[] getCmdEsc3N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x33, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x33, (byte) n };
     }
 
     /**
-     * 设置打印行的对齐方式,缺省:左对齐 0 ≤ n ≤ 2 或 48 ≤ n ≤ 50 左对齐: n=0,48 
-     *               居中对齐: n=1,49 
-     *               右对齐: n=2,50
-     * 
+     * Set the alignment of print lines, default: left-aligned 0 ≤ n ≤ 2 or 48 ≤ n ≤ 50 left-aligned: n=0,48
+     *      * Center alignment: n=1,49
+     *      * Right justified: n=2,50
+     *
      * @param n
-     *            :0 ≤ n ≤ 2 或 48 ≤ n ≤ 50
+     *            :0 ≤ n ≤ 2 or 48 ≤ n ≤ 50
      * @return
      */
     static public byte[] setAlignMode(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x61, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x61, (byte) n };
     }
 
     /**
-     * 设置打印的左边距,缺省为 0。左边距为 nL+nH*256,单位 0.125mm
-     * 
+     * Set the left margin for printing, the default is 0. The left margin is nL+nH*256, unit 0.125mm
+     *
      * @param nL
      * @param nH
      * @return
      */
     static public byte[] getCmdGsLNlNh(int nL, int nH)
     {
-    	return new byte[] { (byte) 0x1D, (byte) 0x4c, (byte) nL, (byte) nH };
+        return new byte[] { (byte) 0x1D, (byte) 0x4c, (byte) nL, (byte) nH };
     }
 
     /**
-     * 设置打印的左边距,缺省为 0 左边距为 nL+nH*256,单位 0.125mm
-     * 
+     * Set the left margin of printing, the default is 0, the left margin is nL+nH*256, the unit is 0.125mm
+     *
      * @param nL
      * @param nH
      * @return
      */
     static public byte[] getCmdEsc$NlNh(int nL, int nH)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x24, (byte) nL, (byte) nH };
+        return new byte[] { (byte) 0x1B, (byte) 0x24, (byte) nL, (byte) nH };
     }
 
-    /*--------------------------字符设置命令-----------------------------*/
+    /*--------------------------Character setting commands-----------------------------*/
 
     /**
-     * 用于设置打印字符的方式。默认值是 0
-     * 
+     * Used to set the way characters are printed. Default value is 0
+     *
      * @param n
-     *            位 0:保留 位 1:1:字体反白 位 2:1:字体上下倒置 位 3:1:字体加粗 位 4:1:双倍高度 位
-     *            5:1:双倍宽度 位 6:1:删除线
+     * Bit 0: Reserved Bit 1:1: Inverse font Bit 2:1: Inverted font Bit 3:1: Bold font Bit 4:1: Double height bit
+     *      5:1: double width bit 6:1: strikethrough
      * @return
      */
-    static public byte[] setFont(int n) 
+    static public byte[] setFont(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x21, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x21, (byte) n };
     }
 
     /**
-     * n 的低 4 位表示高度是否放大,等于 0 表示不放大 n 的高 4 位表示宽度是否放大,等于 0 表示不放大
-     * 
+     * The lower 4 bits of n indicate whether the height is enlarged, equal to 0 means not enlarged.
+     * The high 4 bits of n indicate whether the width is enlarged, equal to 0 means not enlarged.
+     *
      * @param n
      * @return
      */
     static public byte[] setFontEnlarge(int n)
     {
-    	return new byte[] { (byte) 0x1D, (byte) 0x21, (byte) n };
+        return new byte[] { (byte) 0x1D, (byte) 0x21, (byte) n };
     }
 
     /**
-     * 等于 0 时取消字体加粗 非 0 时设置字体加粗
-     * 
+     * When equal to 0, cancel the font boldness. When it is not 0, set the font boldness.
+     *
      * @param n
-     *            最低位有效
+     *            The lowest bit is valid
      * @return
      */
     static public byte[] setFontBold(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x45, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x45, (byte) n };
     }
 
     /**
-     * 默认值:0
-     * 
+     * Default value:0
+     *
      * @param n
-     *            :表示两个字符之间的间距
+     *            : represents the spacing between two characters
      * @return
      */
     static public byte[] setFontDistance(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x20, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x20, (byte) n };
     }
 
     /**
-     * 该命令之后所有字符均以正常宽度的 2 倍打印; 该命令可以用回车或者 DC4 命令删除。
-     * 
+     * All characters after this command are printed at 2 times the normal width;
+     * this command can be deleted with Enter or DC4 command.
+     *
      * @return
      */
-    static public byte[] getCmdEscSo() 
+    static public byte[] getCmdEscSo()
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x0E };
+        return new byte[] { (byte) 0x1B, (byte) 0x0E };
     }
 
     /**
-     * 命令执行后,字符恢复正常宽度打印
-     * 
+     * After the command is executed, the characters return to normal width printing.
+     *
      * @return
      */
     static public byte[] getCmdEscDc4()
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x14 };
+        return new byte[] { (byte) 0x1B, (byte) 0x14 };
     }
 
     /**
-     * 默认:0
-     * 
+     * Default:0
+     *
      * @param n
-     *            n=1:设置字符上下倒置 n=0:取消字符上下倒置
+     *            n=1: Set characters to be inverted n=0: Cancel characters to be inverted
      * @return
      */
-    static public byte[] getCmdEsc__N(int n) 
+    static public byte[] getCmdEsc__N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x7B, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x7B, (byte) n };
     }
 
     /**
-     * 默认:0
-     * 
+     * Default:0
+     *
      * @param n
-     *            n=1:设置字符反白打印 n=0:取消字符反白打印
+     *            n=1: Set characters to be printed in reverse n=0: Cancel characters to be printed in reverse
      * @return
      */
     static public byte[] getCmdGsBN(int n)
     {
-    	return new byte[] { (byte) 0x1D, (byte) 0x42, (byte) n };
+        return new byte[] { (byte) 0x1D, (byte) 0x42, (byte) n };
     }
 
     /**
-     * 默认:0
-     * 
+     * Default:0
+     *
      * @param n
-     *            n=0-2,下划线的高度
+     *            n=0-2, underline height
      * @return
      */
     static public byte[] getCmdEsc___N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x2D, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x2D, (byte) n };
     }
 
     /**
-     * 
+     *
      * @param n
-     *            n=1:选择用户自定义字符集; n=0:选择内部字符集(默认)
+     *            n=1: Select user-defined character set; n=0: Select internal character set (default)
      * @return
      */
-    static public byte[] getCmdEsc____N(int n) 
+    static public byte[] getCmdEsc____N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x25, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x25, (byte) n };
     }
 
     /**
-     * 用于设置用户自定义字符,最多可设置 32 个用户自定义字符。
-     * 
+     * Used to set user-defined characters, up to 32 user-defined characters can be set.
+     *
      * @return
      */
     static public byte[] getCmdEsc_SNMW()
     {
-    	return null;
+        return null;
     }
 
     /**
-     * 命令用于取消用户自定义的字符,字符取消后,使用系统的字符。
-     * 
+     * The command is used to cancel user-defined characters.
+     * After the characters are canceled, the system characters will be used.
+     *
      * @param n
      * @return
      */
     static public byte[] getCmdEsc_____N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x25, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x25, (byte) n };
     }
 
     /**
-     * 选择国际字符集。中文版本不支持该命令。
-     * 
+     * Select an international character set. The Chinese version does not support this command.
+     *
      * @param n
-     *            国际字符集设置如下:0:USA 1:France 2:Germany 3:U.K. 4:Denmark 1 5:Sweden
+     *            The international character set settings are as follows:
+     *            0:USA 1:France 2:Germany 3:U.K. 4:Denmark 1 5:Sweden
      *            6:Italy 7:Spain1 8:Japan 9:Norway 10:Denmark II 11:Spain II
      *            12:Latin America 13:Korea
      * @return
      */
     static public byte[] getCmdEscRN(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x52, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x52, (byte) n };
     }
 
     /**
-     * 选择字符代码页,字符代码页用于选择 0x80~0xfe 的打印字符。中文版本不支持该命令
-     * 
+     * Select the character code page. The character code page is used to select printing characters from 0x80~0xfe.
+     * The Chinese version does not support this command
+     *
      * @param n
-     *            字符代码页参数如 下:0:437 1:850
+     *            The character code page parameters are as follows: 0:437 1:850
      * @return
      */
     static public byte[] getCmdEscTN(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x74, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x74, (byte) n };
     }
 
-    /*--------------------------图形打印命令 略 -----------------------------*/
+    /*--------------------------Graphic printing commands omitted-----------------------------*/
 
-    /*--------------------------按键控制命令-----------------------------*/
+    /*--------------------------Key control commands-----------------------------*/
 
     /**
-     * 允许/禁止按键开关命令,暂时不支持该命令。
-     * 
+     * Allow/disable key switch command. This command is not supported for the time being.
+     *
      * @param n
-     *            n=1,禁止按键 n=0,允许按键(默认)
+     *            n=1, disable key pressing n=0, allow key pressing (default)
      * @return
      */
     static public byte[] getCmdEscC5N(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x63, (byte) 0x35, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x63, (byte) 0x35, (byte) n };
     }
 
-    /*--------------------------初始化命令-----------------------------*/
+    /*--------------------------initialization commands-----------------------------*/
 
     /**
-     * 初始化打印机。清除打印缓冲区 恢复默认值 选择字符打印方式 删除用户自定义字符
-     * 
+     * Initialize the printer. Clear the print buffer. Restore default values.
+     * Select character printing method. Delete user-defined characters
+     *
      * @return
      */
     static public byte[] init()
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x40 };
+        return new byte[] { (byte) 0x1B, (byte) 0x40 };
     }
 
-    /*--------------------------状态传输命令-----------------------------*/
+    /*--------------------------status transfer commands-----------------------------*/
 
     /**
-     * 向主机传送控制板状态
-     * 
+     * Communicate control board status to host
+     *
      * @param n
      * @return
      */
     static public byte[] getCmdEscVN(int n)
     {
-    	return new byte[] { (byte) 0x1B, (byte) 0x76, (byte) n };
+        return new byte[] { (byte) 0x1B, (byte) 0x76, (byte) n };
     }
 
     /**
-     * 当有效时,打印机发现状态改变,则自动发送状态到主机。详细参照ESC/POS指令级。
-     * 
+     * When valid, the printer detects a status change and automatically sends the status to the host.
+     * Please refer to the ESC/POS command level for details.
+     *
      * @param n
      * @return
      */
     static public byte[] getCmdGsAN(int n)
     {
-    	return new byte[] { (byte) 1D, (byte) 61, (byte) n };
+        return new byte[] { (byte) 1D, (byte) 61, (byte) n };
     }
 
     /**
-     * 向主机传送周边设备状态,仅对串口型打印机有效。该命令不支持。详细参照ESC/POS指令集。
-     * 
+     * Transmit peripheral device status to the host, only valid for serial port printers.
+     * This command is not supported. Please refer to the ESC/POS command set for details.
+     *
      * @param n
      * @return
      */
     static public byte[] getCmdEscUN(int n)
     {
-    	return new byte[]{ (byte) 0x1B, (byte) 0x75, (byte) n };
+        return new byte[]{ (byte) 0x1B, (byte) 0x75, (byte) n };
     }
 
     static public byte[] setHeatTime(int n)
     {
-    	return new byte[]{ 0x1B, 0x37, 7,(byte)n, 2};
+        return new byte[]{ 0x1B, 0x37, 7,(byte)n, 2};
     }
-    
-    /*--------------------------条码打印命令 略 -----------------------------*/
 
-    /*--------------------------控制板参数命令 略 -----------------------------*/
+    /*--------------------------Barcode printing commands omitted-----------------------------*/
+
+    /*--------------------------Control panel parameter commands omitted-----------------------------*/
 
     /**
-     * 自定义制表位(2个空格)
-     * 
+     * Custom tab stops (2 spaces)
+     *
      * @return
      */
     static public byte[] getCustomTabs()
     {
-    	return "  ".getBytes();
+        return "  ".getBytes();
     }
 
-    
+
 }

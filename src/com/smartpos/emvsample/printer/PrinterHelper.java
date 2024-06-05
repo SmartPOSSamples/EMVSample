@@ -16,7 +16,7 @@ import com.smartpos.util.StringUtil;
 import java.io.UnsupportedEncodingException;
 
 /**
- * 打印操作
+ * Print operations
  * 
  * @author lianyi
  */
@@ -41,7 +41,7 @@ public class PrinterHelper
     }
 
 	/**
-	 * 打印签购单
+	 * Print purchase order
 	 *
 	 * @throws PrinterException
 	 */
@@ -169,7 +169,7 @@ public class PrinterHelper
 
 
     /**
-     * 打印签购单
+     * Print purchase order
      * 
      * @throws PrinterException
      */

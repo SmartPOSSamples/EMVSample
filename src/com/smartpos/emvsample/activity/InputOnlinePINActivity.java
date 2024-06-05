@@ -51,7 +51,7 @@ public class InputOnlinePINActivity extends FuncActivity implements PinPadCallba
 		buttonMore.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_blank));
 
 		mHandler = new Handler() {
-			public void handleMessage(Message msg) { /*这里是处理信息的方法*/
+			public void handleMessage(Message msg) { /*Here's how to process information*/
 				switch (msg.what) {
 				case PIN_SUCCESS_NOTIFIER:
 					setResult(Activity.RESULT_OK, getIntent());
@@ -111,9 +111,9 @@ public class InputOnlinePINActivity extends FuncActivity implements PinPadCallba
 			appState.pinpadService.setGUIConfiguration("sound", "true");
 			appState.pinpadService.setGUIConfiguration("soundType", "1");
 			appState.pinpadOpened = true;
-			//Don't allow byPassPpin
+			//Don't allow byPasspin
 			appState.pinpadService.setAllowByPassPin(false);
-			//自绘ui
+			//Custom UI
 			if(appState.pinpadType == PINPAD_CUSTOM_UI)
 			{
 				appState.pinpadService.setPinPadCallback(InputOnlinePINActivity.this);
@@ -202,12 +202,12 @@ public class InputOnlinePINActivity extends FuncActivity implements PinPadCallba
 		return new Handler()
 		{
 			public void handleMessage(Message msg)
-			{ /* 这里是处理信息的方法 */
+			{ /* Here's how to process information */
 				switch (msg.what)
 				{
-				case PIN_AMOUNT_SHOW:	// 其值已通过onFlush显示. DuanCS@[20150907]
+				case PIN_AMOUNT_SHOW:	// Its value has been displayed via onFlush. DuanCS@[20150907]
 //					setTextById(R.id.amount, msg.obj.toString());
-					textPin.setText(msg.obj.toString());	// 这一行也不会执行, 因为 Pinpad.showText() 不会触发回调... DuanCS@[20150912]
+					textPin.setText(msg.obj.toString());	// This line will also not be executed because Pinpad.showText() does not trigger the callback... DuanCS@[20150912]
 					break;
 				case PIN_KEY_CALLBACK:
 					textPin.setText(stars, 0, msg.arg1 & 0x0F);

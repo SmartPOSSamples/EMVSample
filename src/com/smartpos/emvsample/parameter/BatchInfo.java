@@ -11,7 +11,7 @@ public class BatchInfo
 	private final String saleAmountTag        = "saleAmount";
 	
 	private Integer batchNumber = 1;
-	private Integer saleCount   = 0;    // 脱机消费 + 折扣消费
+	private Integer saleCount   = 0;    // Offline consumption + discount consumption
 	private Integer saleAmount  = 0;
 	private Integer settlePending = 0;
 	
